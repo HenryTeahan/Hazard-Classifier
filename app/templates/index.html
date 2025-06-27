@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hazard Classification Results</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9fafb;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-weight: 800;
+        }
+        main {
+            background: white;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        main section {
+            margin-bottom: 30px;
+        }
+        main section h2 {
+            border-bottom: 2px solid #004080;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            color: #004080;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.1em;
+            margin: 8px 0;
+        }
+        ul {
+            list-style: disc inside;
+            padding-left: 20px;
+        }
+        ul li {
+            margin: 6px 0;
+        }
+        .pictograms {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pictograms img {
+            max-height: 80px;
+            margin: 0 15px;
+            vertical-align: middle;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        @media (max-width: 600px) {
+            main {
+                padding: 15px;
+            }
+            .pictograms img {
+                max-height: 60px;
+                margin: 0 8px;
+            }
+        }
+        #error-popup {
+          display: none;
+          background-color: #f44336;
+          color: white;
+          padding: 10px;
+          margin: 10px auto;
+          width: 50%;
+          border-radius: 4px;
+          text-align: center;
+        }
+    
+        /* Show popup when this class is added */
+        #error-popup.show {
+          display: block;
+        }
+    </style>
+</head>
+    
+<body>
+    <header>
+        <h1>Health Hazard Calculator</h1>
+    </header>
+    <p>         
+        Please insert the relevant hazards for your compound. Note that the input options are given in the dropdown menu under each hazard. 
+        <br> 
+        The 'Reset' button at the bottom of the page deletes any entries and resets the hazard calculator.
+        <br>
+    *: Category 3 Single Target Organ Toxicants (STOT) have unclear definitions for hazard classification in mixtures, and therefore they are not included in this calculator.</p>
+    
+    <form method="POST">
+
+        <br>
+        Add your ingredients: <br>
+        <hr>
+
+
+        <h2>
+        <b>
+        Name: <input type="text" name="name"> 
+        &nbsp;&nbsp; Percentage: <input type="text" name="percentage">
+
+        </b>
+        </h2>
+        <hr>
+        <br>
+        <label for="Acute Oral Toxicity"><b>Acute Oral Toxicity:</b></label>
+        <select id="acute_toxicity_oral" name="acute_toxicity_oral">
+            <option value="">Not Classified</option>
+            <option value=1>Category 1</option>
+            <option value=2>Category 2</option>
+            <option value=3>Category 3</option>
+            <option value=4>Category 4</option>
+        </select>
+        <br>
+        <label for="Acute Dermal Toxicity"><b>Acute Dermal Toxicity:</b></label>
+        <select id="acute_toxicity_dermal" name="acute_toxicity_dermal">
+            <option value="">Not Classified</option>
+            <option value=1>Category 1</option>
+            <option value=2>Category 2</option>
+            <option value=3>Category 3</option>
+            <option value=4>Category 4</option>
+        </select><br>
+        <label for="Acute Inhalation Toxicity (gases)"><b>Inhalation Toxicity (gases):</b> </label>
+        <select id="acute_toxicity_inhalation_gases" name="acute_toxicity_inhalation_gases">
+            <option value="">Not Classified</option>
+            <option value=1>Category 1</option>
+            <option value=2>Category 2</option>
+            <option value=3>Category 3</option>
+            <option value=4>Category 4</option>
+        </select><br>
+        <label for="Acute Inhalation Toxicity (vapours)"><b>Inhalation Toxicity (vapours):</b></label>
+        <select id="acute_toxicity_inhalation_vapours" name="acute_toxicity_inhalation_vapours">
+            <option value="">Not Classified</option>
+            <option value=1>Category 1</option>
+            <option value=2>Category 2</option>
+            <option value=3>Category 3</option>
+            <option value=4>Category 4</option>
+        </select><br>
+        <label for="Acute Inhalation Toxicity (mist/dust)"><b>Inhalation Toxicity (mist/dust):</b></label>
+        <select id="acute_toxicity_inhalation_mist" name="acute_toxicity_inhalation_mist">
+            <option value="">Not Classified</option>
+            <option value=1>Category 1</option>
+            <option value=2>Category 2</option>
+            <option value=3>Category 3</option>
+            <option value=4>Category 4</option>
+        </select><br>
+        <label for="mutagenicity"><b>Mutagenicity:</b></label>
+        <select id="mutagenicity" name="mutagenicity">
+            <option value="">Not Classified</option>
+            <option value="1A">1A</option>
+            <option value="1B">1B</option>
+            <option value="2">2</option>
+        </select><br>
+        <label for="Carcinogenicity"><b>Carcinogenicity:</b></label>
+        <select id="carcinogenicity" name="carcinogenicity">
+            <option value="">Not Classified</option>
+            <option value="1A">1A</option>
+            <option value="1B">1B</option>
+            <option value="2">2</option>
+        </select><br>
+        <label for="Reproductive Toxicity"> <b>Reproductive Toxicity:</b></label>
+        <select id="reproductive_toxicity" name="reproductive_toxicity">
+            <option value="">Not Classified</option>
+            <option value="1A">1A</option>
+            <option value="1B">1B</option>
+            <option value="2">2</option>
+        </select><br>
+        <label for="skin_sensitizer"><b>Skin Sensitization:</b></label>
+        <select id="skin_sensitizer" name="skin_sensitizer">
+            <option value="">Not Classified</option>
+            <option value="1">1</option>
+            <option value="1A">1A</option>
+            <option value="1B">1B</option>
+        </select><br>
+        <label for="respiratory_sensitizer"><b>Respiratory Sensitization:</b></label>
+        <select id="respiratory_sensitizer" name="respiratory_sensitizer">
+            <option value="">Not Classified</option>
+            <option value="1">1</option>
+            <option value="1A">1A</option>
+            <option value="1B">1B</option>
+        </select><br>
+        <label for="STOT SE"><b>Target Organ Toxicity (single exposure)*:</b> </label>
+        <select id="stotse" name="stotse">
+            <option value="">Not Classified</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select><br>
+        <label for="STOT RE"><b>Specific Target Organ Toxicity (repeated exposure)*</b></label>
+        <select id="stotre" name="stotre">
+            <option value="">Not Classified</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select><br>
+        <label for="skin"><b>Skin Corrosion / Irritation:</b></label>
+        <select id="skin" name="skin">
+            <option value="">Not Classified</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br>
+        <label for="eye"><b>Eye Damage / Irritation:</b></label>
+        <select id="eye" name="eye">
+            <option value="">Not Classified</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br>
+        <br>
+        <button type="submit"><h3>Add Component</button></h3>
+        <br>
+    <br>
+
+    <script id="components-data" type="application/json">
+        {{ components | tojson }}
+    </script>
+    
+
+    <script src="/static/scripts.js"></script>
+
+    <button type="button" onclick="handleCalculate()">Calculate</button>
+    <div>
+        <h2>Components</h2>
+        <ul>
+            {% for component in components %}
+                <li>{{ component.name }} - {{ component.percentage }}%</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="error-popup" class="error-popup">
+        Total percentage must be 100%
+      </div>
+
+    </form>
+
+    <form 
+        action="/reset" method="POST">
+        <button type ="submit">Reset</button>
+    </form>
+
+
+
+</body>
+</html> 
+

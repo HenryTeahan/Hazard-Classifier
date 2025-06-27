@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hazard Classification Results</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9fafb;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-weight: 700;
+        }
+        main {
+            background: white;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        main section {
+            margin-bottom: 30px;
+        }
+        main section h2 {
+            border-bottom: 2px solid #004080;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            color: #004080;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.1em;
+            margin: 8px 0;
+        }
+        ul {
+            list-style: disc inside;
+            padding-left: 20px;
+        }
+        ul li {
+            margin: 6px 0;
+        }
+        .pictograms {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pictograms img {
+            max-height: 80px;
+            margin: 0 15px;
+            vertical-align: middle;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        @media (max-width: 600px) {
+            main {
+                padding: 15px;
+            }
+            .pictograms img {
+                max-height: 60px;
+                margin: 0 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hazard Classification Results</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Ingredients</h2>
+            <ul>
+                {% for ingredient, percentage in ingredients %}
+                <li><strong>{{ ingredient }}</strong>: {{ percentage }} %</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section>
+            <h2>Mixture Toxicity Profile</h2>
+            {{ result | safe }}
+        </section>
+        <section>
+            <h2>H-Statements</h2>
+            {{ result_H_statements | safe }}
+        </section>
+        <section class="pictograms">
+            <h2>Pictograms</h2>
+            {% if result_imgs %}
+                {% for img in result_imgs %}
+                    {{ img | safe }}
+                {% endfor %}
+            {% else %}
+                <p>No relevant pictograms.</p>
+            {% endif %}
+        </section>
+    </main>
+    <div>
+        <button onClick="window.print()">Print this page to PDF</button>
+    </div>
+    <div>
+        <form action="/reset" method="POST" style="display:inline;">
+            <button type="submit">Reset</button>
+        </form>
+    </div>
+
+    <footer>
+        <p> Beta Version 0.0 2025 - contact henry@teahan.dk for bugs </p> 
+    </footer>
+</body>
+</html>
