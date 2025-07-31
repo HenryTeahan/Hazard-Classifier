@@ -35,7 +35,7 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
 - Clean, printable summary page
 - No internet or API dependency — runs **entirely locally**
 - About page detailing calculations
-- 
+  
 ## 🧪 Use Cases
 
 - SDS authoring and compliance checks  
