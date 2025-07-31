@@ -41,11 +41,25 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
 - Teaching and training in chemical safety  
 
 ## 🚀 Getting Started
-
-1. Clone the repository:
+  Clone the repository:
    ```bash
    git clone https://github.com/yourusername/ghs-mixture-calculator.git
    cd ghs-mixture-calculator
+   # Set up virtual environment
+   python3 -m venv venv
+   source venv/bin/activate
+   # Install dependencies
+   pip install -r requirements.txt
+   # On Windows:
+   Double-click start_app.bat - will launch local session
+   # On Linux, navigate to the main directory
+   cd .../'Hazard Classifier'
+   # Run .sh file:
+   ./start_app.sh
+   # Alternatively, run directly in terminal:
+   py run.py
+   Open http://127.0.0.1:5000
+   ``
 ## 🔗 Integration with On-Site Registry Checks
 
 This calculator is designed to be easily integrated with **on-site chemical registry systems** or compliance workflows.
