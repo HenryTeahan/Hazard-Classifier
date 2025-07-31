@@ -1,6 +1,6 @@
 # ⚗️ GHS Mixture Hazard Classification Calculator
 
-A web-based calculator that classifies chemical mixtures using official **GHS cut-off concentrations**, producing a full hazard profile based on ingredient data.
+A web-based calculator that classifies chemical mixtures using official **[GHS cut-off concentrations](https://unece.org/transport/documents/2023/07/standards/ghs-rev10)**, producing a hazard profile based on ingredient hazard data.
 
 ## 🔍 What It Does
 
