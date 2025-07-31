@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Acute Toxicity Calculations
+    </title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Acute Toxicity Calculations</h1>
+    </header>
+    <div class = "form-container">
+    <p class = "h2">
+        As defined in <a href="https://unece.org/transport/dangerous-goods/ghs-rev10-2023">GHS Rev. 10, 2023</a>, acute toxicity refers to serious adverse health effects (i.e. lethality) occuring after a single or short-term oral, dermal or inhalation exposure to a substance or mixture.
+        <br>
+        Acute Toxicity Calculations in this calculator are based on numerical Acute Toxicity Estimates (ATE), which can be seen as a proxy for the lethal dose or concentration for 50% of the test animals
+        (respectively called LD50 and LC50).
+        <br>
+        <br>
+        In the table below, the ATE thresholds for the various exposures can be found.
+        <table border="1">
+            <thead>
+              <tr>
+                <th>Exposure Route</th>
+                <th>Category 1</th>
+                <th>Category 2</th>
+                <th>Category 3</th>
+                <th>Category 4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Oral (mg/kg bodyweight)</td>
+                <td>≤ 5</td>
+                <td>&gt; 5 - ATE ≤ 50</td>
+                <td>&gt; 50 - ATE ≤ 300</td>
+                <td>&gt; 300 - ATE ≤ 2000</td>
+              </tr>
+              <tr>
+                <td>Dermal (mg/kg bodyweight)</td>
+                <td>≤ 50</td>
+                <td>&gt; 50 - ATE ≤ 200</td>
+                <td>&gt; 200 - ATE ≤ 1000</td>
+                <td>&gt; 1000 - ATE ≤ 2000</td>
+              </tr>
+              <tr>
+                <td>Inhalation, Gas (ppmV)</td>
+                <td>≤ 100</td>
+                <td>&gt; 100 - ATE ≤ 500</td>
+                <td>&gt; 500 - ATE ≤ 2500</td>
+                <td>&gt; 2500 - ATE ≤ 20000</td>
+              </tr>
+              <tr>
+                <td>Inhalation, Vapours (mg/L)</td>
+                <td>≤ 0.5</td>
+                <td>&gt; 0.5 - ATE ≤ 2</td>
+                <td>&gt; 2 - ATE ≤ 10</td>
+                <td>&gt; 10 - ATE ≤ 20</td>
+              </tr>
+              <tr>
+                <td>Inhalation, Mist (mg/L)</td>
+                <td>≤ 0.05</td>
+                <td>&gt; 0.05 - ATE ≤ 0.5</td>
+                <td>&gt; 0.5 - ATE ≤ 1</td>
+                <td>&gt; 1 - ATE ≤ 5</td>
+              </tr>
+          
+            </tbody>
+            </table>
+            <br>
+        To obtain the ATE, a conversion table exists:
+            <table border = "1">
+            <thead>
+              <tr>
+                <th>Exposure Route</th>
+                <th>Category 1</th>
+                <th>Category 2</th>
+                <th>Category 3</th>
+                <th>Category 4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Oral (mg/kg bodyweight)</td>
+                <td> 0.5</td>
+                <td> 5</td>
+                <td> 100</td>
+                <td> 500</td>
+              </tr>
+              <tr>
+                <td>Dermal (mg/kg bodyweight)</td>
+                <td> 5</td>
+                <td> 50</td>
+                <td> 300</td>
+                <td> 1100</td>
+              </tr>
+              <tr>
+                <td>Inhalation, Gas (ppmV)</td>
+                <td>10</td>
+                <td> 100</td>
+                <td> 700</td>
+                <td> 4500</td>
+              </tr>
+              <tr>
+                <td>Inhalation, Vapours (mg/L)</td>
+                <td> 0.05</td>
+                <td> 0.5</td>
+                <td> 3</td>
+                <td> 11</td>
+              </tr>
+              <tr>
+                <td>Inhalation, Mist (mg/L)</td>
+                <td> 0.005</td>
+                <td> 0.05</td>
+                <td> 0.5</td>
+                <td> 1.5</td>
+              </tr>          
+            </tbody>
+            </table>
+        <br>
+        The ATE of the mixture (ATEmix) is calculated as follows, for each individual route of exposure:
+        <br>
+        <div class = "calc">
+        <img src = "../static/Images/atemix.png" class = "center">
+        </div>
+        The resulting ATE of the mixture is then matched with the conversion table, and the final classification for each of the exposure routes is found.
+    </p>
+    </div>
+    <div class = "form-container">
+        <h2>Example</h2>
+        Lets look at an example, 5% Formic Acid and 5% Methanol in an aqueous solution, with the following acute oral toxicity values:
+        <br>
+        Formic acid: Acute Oral Toxicity, category 3;
+        <br>
+        Methanol: Acute Oral Toxicity, category 3;
+        <br>
+        The concentration is given as the weight percentages (5% for each). Lets calculate the right hand side:
+        <br>
+        = 0.05/100 + 0.05/100 = 0.1/100
+        <br>
+        And now we can find the ATEmix value, by dividing 100 with this: 100/(0.1/100) = 1000
+        <br>
+        Looking this value up in the threshold table, we see that this lies in category 4, and hence the mixture will be classified as a category 4 acute oral toxicant.
+    </div> 
+    <a href="{{ url_for('index') }}"><p class = "button2">Home</p></a>
+    <a href="{{ url_for('about') }}"><p class = "button2">About</p></a>
+
+</body>

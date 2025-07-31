@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eye and Skin Hazard Calculations
+    </title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            Skin Corrosion / Irritation
+        </h1>
+    </header>
+    <div class = "form-container">
+    <p class = "h2">
+        As defined in <a href="https://unece.org/transport/dangerous-goods/ghs-rev10-2023">GHS Rev. 10, 2023</a>, skin corrosion refers to irreversible damage to the skin and 
+        skin irritation refers to the production of reversible damage to the skin, both occuring after exposure to a substance or mixture.
+        <br>
+        The table below provides cut-off concentration limits used to determine if mixtures should be classified as seriously damaging to the eye or an eye irritant.
+        Note that particular care must be taken when classifying mixtures containing certain substances such as acids and bases, inorganic salts, aldehydes, phenols, and surfactants.
+        In some situations, the additivity approach presented below does not apply, and instead the pH should be used as a method of classification.
+    </p>
+    <div class = "calc">
+        <img src = "../static/Images/skineye.png" class = "center">
+    </div>
+    <p class = "h2">
+        This method fails in some situations, and in that case it is important to consult <a href="https://unece.org/transport/dangerous-goods/ghs-rev10-2023">GHS Rev. 10, 2023</a> to view 
+        more applicable methods.
+    </p>
+
+    </div>  
+    <div class = "form-container">
+        <h2>Example</h2>
+        Lets look at an example, 8% Ethanol with 0.1% Formic acid.
+        <br>
+        Ethanol is a category 2 eye irritant, and Formic acid has category 1 eye damage and category 1 skin corrosion.
+        <br>
+        8% Ethanol alone does not trigger any hazard, but in combination with skin category 1 and eye category 1 hazards, we end up with a eye irritation category 2 mixture:
+        <br>
+        10 x (skin Category 1 + eye Category 1) + eye Category 2 = 10 x (0.1 % + 0.1 %) + 8 % = 10% -> Hence category 2 eye irritant.
+    </div>
+    <a href="{{ url_for('index') }}"><p class = "button2">Home</p></a>
+    <a href="{{ url_for('about') }}"><p class = "button2">About</p></a>
+
+</body>
