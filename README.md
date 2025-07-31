@@ -59,7 +59,7 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
    # Alternatively, run directly in terminal:
    py run.py
    Open http://127.0.0.1:5000
-   ``
+   ```
 ## 🔗 Integration with On-Site Registry Checks
 
 This calculator is designed to be easily integrated with **on-site chemical registry systems** or compliance workflows.
