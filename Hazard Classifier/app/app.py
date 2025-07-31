@@ -12,27 +12,23 @@ STATIC_IMAGES_DIR = os.path.join(BASE_DIR, 'static', 'Images')
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 hazard_data_path = os.path.join(DATA_DIR, 'hazard_data.csv')
-hhm_data_path = os.path.join(DATA_DIR, 'hhm_data2.csv')
-pf_data_path = os.path.join(DATA_DIR, 'pf_data.csv')
+
 limits_data_path = os.path.join(DATA_DIR, 'limits.yaml')
 
 hazard_data = pd.read_csv(hazard_data_path, delimiter=';')
-hhm_data = pd.read_csv(hhm_data_path)
-pf_data = pd.read_csv(pf_data_path)
+
 
 img_src_actox = 'static/Images/acutetox.jpg'
 img_src_corr_path = 'static/Images/corrosive.jpg'
 img_src_health_path = 'static/Images/healthhaz.jpg'
 img_src_warning_path = 'static/Images/warning.jpg'
-img_src_hhm = 'static/Images/hhm.jpg'
-img_src_pf = 'static/Images/pf.jpg'
+
 
 #hazard_data = pd.read_csv('data/hazard_data.csv',delimiter=';')
 #hhm_data = pd.read_csv('data/hhm_data2.csv',delimiter=',')
 #pf_data = pd.read_csv('data/pf_data.csv',delimiter=',')
 
-hhm_data_cas = hhm_data['CAS number'].to_list()
-pf_data_cas = set(pf_data['CAS'].to_list())
+
 limits = {}
 with open(limits_data_path,'r') as file:
     limits = yaml.safe_load(file)
@@ -633,10 +629,6 @@ def get_pictograms(hazard_no):
         if H in ['H317', 'H320', 'H319', 'H316', 'H315', 'H312', 'H302', 'H332']:  # Warning
             pictograms.add(f'<img src="{img_src_warning_path}">')
 
-        if H == 'HHM':
-            pictograms.add(f'<img src="{img_src_hhm}">')
-        if H == 'PF':
-            pictograms.add(f'<img src="{img_src_pf}">')
     return list(pictograms)
 
 def h_statements(hazards):
@@ -748,36 +740,36 @@ def h_statements(hazards):
 
     return H_statements
 
-def is_hhm(components, limits):
-        l = limits["hhm_limits"]
-        hhm = []
-        for component in components:
-            if 'CAS' in component:
-                if component['CAS'] in hhm_data_cas:  # hhm_data_cas must be defined somewhere as a set or list
-                    if component["percentage"] > l["hhm"]:
-                        hhm.append({
-                            'cas': component['CAS'],
-                            'name': component['name'],
-                            'percentage': component['percentage']
-                        })
-            else:
-                continue
-        return hhm
+#def is_hhm(components, limits):
+#        l = limits["hhm_limits"]
+#        hhm = []
+#        for component in components:
+#            if 'CAS' in component:
+#                if component['CAS'] in hhm_data_cas:  # hhm_data_cas must be defined somewhere as a set or list
+#                    if component["percentage"] > l["hhm"]:
+#                        hhm.append({
+#                            'cas': component['CAS'],
+#                            'name': component['name'],
+#                            'percentage': component['percentage']
+#                        })
+#            else:
+#                continue
+#        return hhm
 
-def is_pf(components, limits):
-    l = limits["peroxide_limits"]
-    pf = []
-    for component in components:
-        if 'CAS' in component:
-            if component['CAS'] in pf_data_cas:
-                if component["percentage"] > l["per"]:
-                    pf.append({
-                        'cas': component['CAS'],
-                        'name': component['name'],
-                        'percentage': component['percentage']})
-        else:
-            continue
-    return pf
+#def is_pf(components, limits):
+#    l = limits["peroxide_limits"]
+#    pf = []
+#    for component in components:
+#        if 'CAS' in component:
+#            if component['CAS'] in pf_data_cas:
+#                if component["percentage"] > l["per"]:
+#                    pf.append({
+#                        'cas': component['CAS'],
+#                        'name': component['name'],
+#                        'percentage': component['percentage']})
+#        else:
+#            continue
+#    return pf
 
 def get_H_statements(H_statements, components, limits):
     hazard_no = []
@@ -792,25 +784,25 @@ def get_H_statements(H_statements, components, limits):
         else:
             continue
 
-    hhm = is_hhm(components, limits)
-    pf = is_pf(components, limits)
+#   hhm = is_hhm(components, limits)
+#   pf = is_pf(components, limits)
 
-    if len(hhm) > 0:
+    #if len(hhm) > 0:
 
-        print([f"Has HHM {h}" for h in hhm])
-        hhm_string = ""
-        for item in hhm:
-            hhm_string += f"This mixture contains an Amgen High Hazard material: {item['name']} at {item['percentage']}%.\n"
-        hazard_statement.append(hhm_string); pictogram.append('hhm'); signal_word.append('HHM'); hazard_no.append('HHM')
+    #    print([f"Has HHM {h}" for h in hhm])
+    #    hhm_string = ""
+    #    for item in hhm:
+    #        hhm_string += f"This mixture contains an --- material: {item['name']} at {item['percentage']}%.\n"
+    #    hazard_statement.append(hhm_string); pictogram.append('hhm'); signal_word.append('HHM'); hazard_no.append('HHM')
 
-    if len(pf) > 0:
+    #if len(pf) > 0:
 
-        print([f"Has Amgen Peroxide former {p}" for p in pf])
-        pf_string = ""
-        for item in pf:
-            pf_string += f"This mixture contains an Amgen Peroxide Former: {item['name']} at {item['percentage']}%.\n"
-            print(item['name'])
-        hazard_statement.append(pf_string); pictogram.append('PF'); signal_word.append('PF'); hazard_no.append('PF')
+    #    print([f"Has --- Peroxide former {p}" for p in pf])
+    #    pf_string = ""
+    #    for item in pf:
+    #        pf_string += f"This mixture contains an --- Peroxide Former: {item['name']} at {item['percentage']}%.\n"
+    #        print(item['name'])
+    #    hazard_statement.append(pf_string); pictogram.append('PF'); signal_word.append('PF'); hazard_no.append('PF')
 
     return hazard_no, hazard_statement, pictogram, signal_word
 
@@ -992,14 +984,15 @@ def calculate():
             sig_word = None
     else:
         print('signalword',signal_word, type(signal_word))
-        if len(signal_word) == 1:
-            if signal_word[0] != 'HHM' or signal_word[0] != 'PF':
-                sig_word = signal_word
-            else:
-                sig_word = None
-        else:
-            sig_word = signal_word
-            print('signal word bug length',len(signal_word))
+        signal_word = signal_word
+        #if len(signal_word) == 1:
+        #    if signal_word[0] != 'HHM' or signal_word[0] != 'PF':
+        #        sig_word = signal_word
+        #    else:
+        #        sig_word = None
+        #else:
+        #    sig_word = signal_word
+        #    print('signal word bug length',len(signal_word))
     toxicity_data = {
     "acute oral toxicity category": mixture_oral_toxicity,
     "acute dermal toxicity category": mixture_dermal_toxicity,
