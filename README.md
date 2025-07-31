@@ -35,13 +35,18 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
 - Clean, printable summary page
 - No internet or API dependency — runs **entirely locally**
 - About page detailing calculations
-
+- 
 ## 🧪 Use Cases
 
 - SDS authoring and compliance checks  
 - Laboratory safety and chemical mixture assessments  
 - Regulatory prep for REACH, CLP, OSHA HazCom  
 - Teaching and training in chemical safety  
+
+> **Note:** This calculator applies **only the GHS cut-off concentration thresholds** to classify mixture hazards.  
+> It does **not** incorporate experimental toxicity data or in-depth risk assessment.  
+> Use this tool as a **guidance aid** and **not as definitive evidence** for regulatory or safety decisions.  
+> Always consult qualified safety professionals and official testing results when necessary.
 
 ## 🚀 Getting Started
   Clone the repository:
@@ -74,5 +79,13 @@ While proprietary registry documents cannot be shared publicly, the app's modula
 - Streamline SDS creation and regulatory audits on-site  
 
 To facilitate this, example integration workflows and scripts can be provided privately upon request to henry@teahan.dk.
+
+## ⚠️ Disclaimer
+
+This calculator performs hazard classification exclusively using **GHS cut-off concentration thresholds** as defined by international regulations.  
+
+It **does not** use empirical toxicity testing or replace comprehensive chemical risk assessments.  
+
+The results are intended as a **guidance tool** only. For formal safety evaluations or legal compliance, please refer to certified testing data and consult with chemical safety experts.
 
 
