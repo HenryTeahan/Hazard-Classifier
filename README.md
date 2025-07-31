@@ -46,3 +46,16 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
    ```bash
    git clone https://github.com/yourusername/ghs-mixture-calculator.git
    cd ghs-mixture-calculator
+## 🔗 Integration with On-Site Registry Checks
+
+This calculator is designed to be easily integrated with **on-site chemical registry systems** or compliance workflows.
+
+While proprietary registry documents cannot be shared publicly, the app's modular architecture allows seamless extension or API hooking to:
+
+- Automatically fetch ingredient details from internal chemical databases  
+- Perform batch hazard classification against local chemical inventories  
+- Streamline SDS creation and regulatory audits on-site  
+
+To facilitate this, example integration workflows and scripts can be provided privately upon request.
+
+
