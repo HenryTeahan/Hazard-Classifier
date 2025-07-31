@@ -103,18 +103,17 @@ button {
     color: white;
     transition: background-color 0.3s ease;
 }
+
+
 a.button3,
 a.button3:visited,
 a.button3:active,
 a.button3:focus {
-    display: block;
-    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     width: 360px;
-    height: 65px;
+    padding: 1rem; /* controls height; allows it to grow */
     font-size: clamp(10px, 2.5vw, 20px);
     font-weight: 600;
     cursor: pointer;
@@ -124,9 +123,11 @@ a.button3:focus {
     color: white !important;
     text-decoration: none !important;
     transition: background-color 0.3s ease;
-    outline: none !important;
-    -webkit-tap-highlight-color: transparent;
-    line-height: 30px; /* vertically centers text */
+    text-align: center;
+    text-wrap: balance; /* optional: keeps wrapping nicer */
+    line-height: 1.4;
+    box-sizing: border-box;
+    word-break: break-word;
 }
 
   
