@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carcinogenicity, Mutagenicity, Reproductive Toxicity and Sensitization Calculations
+    </title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>
+            Carcinogenicity, Mutagenicity, Reproductive Toxicity and Sensitization
+        </h1>
+    </header>
+    <div class = "form-container">
+        <p class = "h2">
+        This section looks at five different health hazards; Carcinogenicity, Mutagenicity, Reproductive Toxicity, Skin Sensitization and Respiratory Sensitization.
+        <br>
+        The explanation as to why these health hazards are grouped together here can be found in <a href="https://unece.org/transport/dangerous-goods/ghs-rev10-2023">GHS Rev. 10, 2023</a>, 
+        where the cut-off concentration limits are uniform across these various hazards.
+        </p>
+    </div>
+    <div class = "form-container">
+        <p class = "h2">
+            <h1>
+                Carcinogenicity
+            </h1>
+            As defined in <a href="https://unece.org/transport/dangerous-goods/ghs-rev10-2023">GHS Rev. 10, 2023</a>, Carcinogenicity 
+            refers to the induction of cancer or an increase in the incidence of cancer occuring after exposure to a substance or mixture.
+            The classification of a mixture as posing a carcinogenic hazard is based on its inherent properties and does not provide information on the level of human cancer risk.
+            <br>
+            <br>
+            <a href="https://unece.org/transport/dangerous-goods/ghs-rev10-2023">GHS Rev. 10, 2023</a> provides the following cut-off concentration limits of ingredients in a mixture to trigger classification of the mixture:
+            <div class = "calc">
+                <img src = "../static/Images/carc.png" class = "center">
+            </div>
+            This calculator takes a cautious approach and applies the lowest possible cut-off concentration limits given by GHS.
+            <br>
+            The cut-off concentration limit for any ingredient classified as either 
+            a Category 1A, 1B or Category 2 carcinogen is therefore greater or equal to a concentration of 0.1%.
+        </p>
+    </div>
+    <div class = "form-container">
+        <p class = "h2">
+            <h1>
+                Germ Cell Mutagenicity
+            </h1>
+            As defined in <a href="https://unece.org/transport/dangerous-goods/ghs-rev10-2023">GHS Rev. 10, 2023</a>, Germ Cell Mutagenicity refers to heritable gene mutations, including heritable structural and numerical
+            chromosome aberrations in germ cells occurring after exposure to a substance or mixture.
+            The cut-off concentration limits for ingredients of a mixture classified as germ cell mutagens that would trigger classification of the mixture can be found below:
+            <div class = "calc">
+                <img src="../static/Images/germcell.png" class = "center">
+            </div>
+        </p>
+    </div>
+    <div class = "form-container">
+        <p class = "h2">
+            <h1>
+                Reproductive Toxicity
+            </h1>
+            As defined in <a href="https://unece.org/transport/dangerous-goods/ghs-rev10-2023">GHS Rev. 10, 2023</a>, reproductive toxicity is classified based on a multitude of adverse effects on sexual function and fertility in adult males and females, as well as developmental toxicity occuring after exposure to a substance or mixture.
+            <br>
+            The cut-off concentration limits for ingredients of a mixture classified as being reproductive toxicants or for effects on or via lactation that would trigger classification of the mixtures can be found below:
+            <div class = "calc">
+                <img src = "../static/Images/reprtox.png" class = "center">
+            </div>
+            Once again, this calculator uses the lowest possible cut-off concentration limits, and therefore the cut-off concentration is 0.1% for any category of reproductive toxicant in a mixture. 
+        </p>
+    </div>
+    
+    <div class = "form-container">
+        <p class = "h2">
+            <h1>
+                Skin & Respiratory Sensitization
+            </h1>
+            As defined in <a href="https://unece.org/transport/dangerous-goods/ghs-rev10-2023">GHS Rev. 10, 2023</a>, respiratory sensitization refers to hypersensitivity of the airways occuring
+            after inhalation of a substance or a mixture. Skin sensitization refers to an allergic response occuring after skin contact with a substance or a mixture.
+            <br>
+            The cut-off concentration limits for ingredients of a mixture classified as being skin or resporatory sensitizers can be found below:
+            <br>
+            <div class = "calc">
+                <img src = "../static/Images/sens.png" class = "center">
+            </div>
+            As has become customary, this calculator uses the lowest possible cut-off concentration limits, and therefore the cut-off concentration limit for any category 1 sensitizer 
+            is greater or equal to 0.1%, unless the sensitizers involved are category 1B sensitizers, where the cut-off concentration limit is 1.0%.
+        </p>
+    </div>
+    <a href="{{ url_for('index') }}"><p class = "button2">Home</p></a>
+    <a href="{{ url_for('about') }}"><p class = "button2">About</p></a>
+</body>

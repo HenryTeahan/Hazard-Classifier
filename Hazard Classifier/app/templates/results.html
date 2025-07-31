@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hazard Classification Results</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Hazard Classification Results</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Ingredients</h2>
+            <ul>
+                {% for ingredient, percentage in ingredients %}
+                <li><strong>{{ ingredient }}</strong>: {{ percentage }} %</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section>
+            <h2>Mixture Toxicity Profile</h2>
+            {{ result | safe }}
+        </section>
+        <section>
+            <h2>H-Statements</h2>
+            {{ result_H_statements | safe }}
+        </section>
+        <section class="pictograms">
+            <h2>Pictograms</h2>
+            {% if result_imgs %}
+                {% for img in result_imgs %}
+                    {{ img | safe }}
+                {% endfor %}
+            {% else %}
+                <p>No relevant pictograms.</p>
+            {% endif %}
+        </section>
+    </main>
+    <div>
+        <button onClick="window.print()" class = "button2">Print to PDF</button>
+    </div>
+    <div>
+        <form action="/reset" method="POST" style="display:inline;">
+            <button type="submit" class = "button2">Reset</button>
+        </form>
+    </div>
+
+
+    <footer>
+        <p> Beta Version 0.0 2025 - contact hteahan@amgen.com for bugs </p> 
+    </footer>
+</body>
+</html>
