@@ -27,11 +27,13 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
 
 ## 📦 Features
 
-- Mass or mole-based input (supports molar mass entry)
+- Mass or concentration and molar mass based input calculated automatically to w/w%
 - Fully compliant with **GHS health hazard thresholds**
+- Takes most careful approach, always choosing lowest possible cut-off concentration limit
 - Automatically composes hazard pictograms and signal words
 - Clean, printable summary page
 - No internet or API dependency — runs **entirely locally**
+- About page detailing calculations
 
 ## 🧪 Use Cases
 
@@ -58,7 +60,7 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
    ./start_app.sh
    # Alternatively, run directly in terminal:
    py run.py
-   Open http://127.0.0.1:5000
+   #Open http://127.0.0.1:5000
    ```
 ## 🔗 Integration with On-Site Registry Checks
 
