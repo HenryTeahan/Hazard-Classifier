@@ -56,6 +56,6 @@ While proprietary registry documents cannot be shared publicly, the app's modula
 - Perform batch hazard classification against local chemical inventories  
 - Streamline SDS creation and regulatory audits on-site  
 
-To facilitate this, example integration workflows and scripts can be provided privately upon request.
+To facilitate this, example integration workflows and scripts can be provided privately upon request to henry@teahan.dk.
 
 
