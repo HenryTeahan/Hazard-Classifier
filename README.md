@@ -23,7 +23,8 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
 
 - [Python](https://www.python.org/)
 - [Flask](https://flask.palletsprojects.com/)
-- HTML/CSS/Javascript
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) / [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) / [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
 
 ## 📦 Features
 
