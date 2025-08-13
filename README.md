@@ -58,15 +58,8 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
    source venv/bin/activate
    # Install dependencies
    pip install -r requirements.txt
-   # On Windows:
-   Double-click start_app.bat - will launch local session
-   # On Linux, navigate to the main directory
-   cd .../'Hazard Classifier'
-   # Run .sh file:
-   ./start_app.sh
-   # Alternatively, run directly in terminal:
-   py run.py
-   #Open http://127.0.0.1:5000
+   # Run Streamlit App
+   python App.py
    ```
 ## 🔗 Integration with On-Site Registry Checks
 
