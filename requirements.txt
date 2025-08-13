@@ -1,0 +1,4 @@
+pandas
+yaml
+os
+streamlit
