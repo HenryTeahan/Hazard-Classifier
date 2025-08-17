@@ -88,7 +88,34 @@ def calculate_masses(components, total_mass=1000):
 
     return components
 
-
+def cas_verifier(cas):
+    key_change = 0
+    counter = len(cas)-3
+    cas_form = {'first': [], 'second': [], 'checksum': 0}
+    for v in cas:
+        try:
+            if float(v) and key_change < 2:
+                key = list(cas_form.keys())[key_change]
+                cas_form[key].append(float(v)*counter)
+                counter -= 1
+                continue
+            elif float(v) and key_change == 2:
+                key = list(cas_form.keys())[key_change]
+                cas_form[key] = float(v)
+        except ValueError as ve:
+            key_change += 1
+            print(ve)
+            continue
+    first = sum(cas_form['first'])
+    second = sum(cas_form['second'])
+    third = cas_form['checksum']
+    
+    if (first+second) % 10 == third:
+        print("Valid CAS Number")
+        return(True)
+    else:
+        print("Invalid CAS Number")
+        return(False)
 
 def calculate_stotre(components, limits):
   """

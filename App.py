@@ -7,7 +7,7 @@ from calculations import (
     calculate_masses_with_hazards,
     calculate_masses,
     calculations,
-    #calculate
+    cas_verifier
     )
 
 
@@ -220,10 +220,21 @@ def show_input_page():
 
     with col1:
         if st.button("Add Component"):
-            st.session_state.components.append(component)
-            st.success(f"Added: {name}")
-            st.session_state.reset = True 
-            st.rerun()
+            check = True
+            if cas:
+                check = cas_verifier(cas)
+                if check == False:
+                    st.error("Invalid CAS Number! Please double check the CAS number")
+                else:
+                    st.session_state.components.append(component)
+                    st.success(f"Added: {name}")
+                    st.session_state.reset = True 
+                    st.rerun()
+            else:
+                st.session_state.components.append(component)
+                st.success(f"Added: {name}")
+                st.session_state.reset = True 
+                st.rerun()
     with col2:
         if st.button("Fill with Water"):
             st.session_state.components = calculate_masses(st.session_state.components)
