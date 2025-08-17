@@ -1,6 +1,6 @@
 # ⚗️ GHS Mixture Hazard Classification Calculator
 
-A web-based calculator that classifies chemical mixtures using official **[GHS cut-off concentrations](https://unece.org/transport/documents/2023/07/standards/ghs-rev10)**, producing a hazard profile based on ingredient hazard data.
+A Streamlit-based calculator that classifies chemical mixtures using official **[GHS cut-off concentrations](https://unece.org/transport/documents/2023/07/standards/ghs-rev10)**, producing a hazard profile based on ingredient hazard data.
 
 ## 🔍 What It Does
 
@@ -21,9 +21,8 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
 
 ## 💻 Built With
 
-- [Python](https://www.python.org/)
-- [Flask](https://flask.palletsprojects.com/)
-- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) / [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) / [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Python](https://www.python.org/)  
+- [Streamlit](https://streamlit.io/) (web app framework)  
 
 
 ## 📦 Features
@@ -59,7 +58,7 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
    # Install dependencies
    pip install -r requirements.txt
    # Run Streamlit App
-   python App.py
+   streamlit run App.py
    ```
 ## 🔗 Integration with On-Site Registry Checks
 
