@@ -51,6 +51,7 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
 Clone and launch the application.
    ```bash
    git clone https://github.com/henryteahan/hazard-classifier.git
+   cd hazard-classifier
    conda create -n hazardclassifier
    conda activate hazardclassifier
    pip install -r requirements.txt
