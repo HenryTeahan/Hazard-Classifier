@@ -1,8 +1,8 @@
-# ⚗️ GHS Mixture Hazard Classification Calculator
+# GHS Mixture Hazard Classification Calculator
 
 A Streamlit-based calculator that classifies chemical mixtures using official **[GHS cut-off concentrations](https://unece.org/transport/documents/2023/07/standards/ghs-rev10)**, producing a hazard profile based on ingredient hazard data.
 
-## 🔍 What It Does
+## What It Does
 
 Enter a list of chemical ingredients and their contributions (by percentage or moles), and this app automatically:
 
@@ -13,19 +13,19 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
   - Carcinogenicity
   - And more
 - Outputs a complete hazard profile, including:
-  - ✅ Hazard class names
-  - ✅ GHS pictograms
-  - ✅ Signal words (e.g., *Danger*, *Warning*)
-  - ✅ H-statements (e.g., *H301: Toxic if swallowed*)
+  - Hazard class names
+  - GHS pictograms
+  - Signal words (e.g., *Danger*, *Warning*)
+  - H-statements (e.g., *H301: Toxic if swallowed*)
 - Allows **printing to PDF** for documentation or SDS use
 
-## 💻 Built With
+## Built With
 
 - [Python](https://www.python.org/)  
 - [Streamlit](https://streamlit.io/) (web app framework)  
 
 
-## 📦 Features
+## Features
 
 - Mass or concentration and molar mass based input calculated automatically to w/w%
 - Fully compliant with **GHS health hazard thresholds**
@@ -35,7 +35,7 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
 - No internet or API dependency — runs **entirely locally**
 - About page detailing calculations
   
-## 🧪 Use Cases
+## Use Cases
 
 - SDS authoring and compliance checks  
 - Laboratory safety and chemical mixture assessments  
@@ -47,7 +47,7 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
 > Use this tool as a **guidance aid** and **not as definitive evidence** for regulatory or safety decisions.  
 > Always consult qualified safety professionals and official testing results when necessary.
 
-## 🚀 Getting Started
+## Getting Started
   Clone the repository:
    ```bash
    git clone https://github.com/yourusername/ghs-mixture-calculator.git
@@ -60,7 +60,7 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
    # Run Streamlit App
    streamlit run App.py
    ```
-## 🔗 Integration with On-Site Registry Checks
+## Integration with On-Site Registry Checks
 
 This calculator is designed to be easily integrated with **on-site chemical registry systems** or compliance workflows.
 
@@ -72,7 +72,7 @@ While proprietary registry documents cannot be shared publicly, the app's modula
 
 To facilitate this, example integration workflows and scripts can be provided privately upon request to henry@teahan.dk.
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This calculator performs hazard classification exclusively using **GHS cut-off concentration thresholds** as defined by international regulations.  
 
