@@ -48,16 +48,12 @@ Enter a list of chemical ingredients and their contributions (by percentage or m
 > Always consult qualified safety professionals and official testing results when necessary.
 
 ## Getting Started
-  Clone the repository:
+Clone and launch the application.
    ```bash
-   git clone https://github.com/yourusername/ghs-mixture-calculator.git
-   cd ghs-mixture-calculator
-   # Set up virtual environment
-   python3 -m venv venv
-   source venv/bin/activate
-   # Install dependencies
+   git clone https://github.com/henryteahan/hazard-classifier.git
+   conda create -n hazardclassifier
+   conda activate hazardclassifier
    pip install -r requirements.txt
-   # Run Streamlit App
    streamlit run App.py
    ```
 ## Integration with On-Site Registry Checks
