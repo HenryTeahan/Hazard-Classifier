@@ -77,4 +77,35 @@ It **does not** use empirical toxicity testing or replace comprehensive chemical
 
 The results are intended as a **guidance tool** only. For formal safety evaluations or legal compliance, please refer to certified testing data and consult with chemical safety experts.
 
+## Development and Testing
 
+The project supports Python 3.10 through 3.12. For a reproducible Conda environment, you can include the Python version when creating it:
+
+```bash
+conda create -n hazardclassifier python=3.12
+```
+
+Install the dependencies and run the automated tests:
+
+```bash
+pip install -r requirements.txt
+python -m unittest discover -v
+```
+
+The tests cover mass and concentration conversion, CAS number validation, classification thresholds, and H-statement selection. GitHub Actions runs the same test suite automatically for pushes and pull requests.
+
+## Project Structure
+
+```text
+App.py                 Streamlit user interface
+calculations.py        Mixture classification calculations
+data/limits.yaml       GHS cut-off concentrations and thresholds
+data/hazard_data.csv   H-statements and communication elements
+pages/                 Explanations of the implemented calculations
+static/                Hazard pictograms and reference images
+tests/                 Automated regression tests
+```
+
+## Contributing
+
+Issues and pull requests are welcome. When changing a calculation or a value in `data/limits.yaml`, please include a test covering the relevant boundary and cite the applicable GHS section in the pull request.

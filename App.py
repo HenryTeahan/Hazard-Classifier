@@ -214,7 +214,7 @@ def show_input_page():
         component["molarmass"] = molar_mass
     if conc_M:
         component["M"] = conc_M
-        component["molarmass"]
+        component["molarmass"] = molar_mass
 
     col1, col2, col3 = st.columns(3)
 

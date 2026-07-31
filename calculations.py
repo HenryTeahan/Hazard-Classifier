@@ -5,8 +5,8 @@ def calculate_masses_with_hazards(components, total_mass = 1000):
     total_solute_mass = 0
     for c in components[:-1]:
         perc = c.get('percentage')
-        mM = c.get('milimolar')
-        M = c.get('molar')
+        mM = c.get('mM')
+        M = c.get('M')
         molar_mass = c.get('molarmass')
 
         if perc not in [None, '']:
@@ -50,8 +50,8 @@ def calculate_masses(components, total_mass=1000):
     total_solute_mass = 0
     for c in components:
         perc = c.get('percentage')
-        mM = c.get('milimolar')
-        M = c.get('molar')
+        mM = c.get('mM')
+        M = c.get('M')
         molar_mass = c.get('molarmass')
 
         if perc not in [None, '']:
